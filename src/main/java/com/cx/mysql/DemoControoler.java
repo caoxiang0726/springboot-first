@@ -7,11 +7,15 @@ package com.cx.mysql;
  */
 
 import com.cx.mysql.po.SysUserPo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * CREATE TABLE sys_user_test(
@@ -35,6 +39,25 @@ public class DemoControoler {
         po.setSex("M");
         int count = demoService.addUser(po);
         return po.getId()+"";//获取自增值
+    }
+
+    @GetMapping(value = "/delbyid/{id}")
+    public int delByID(@PathVariable("id") int userid){
+        SysUserPo po = new SysUserPo();
+        po.setId(userid);
+        int count = demoService.delById(po);
+        return count;
+    }
+
+    @GetMapping(value = "get/{name}/{sex}")
+    public List<SysUserPo> getUser(@PathVariable(value = "name",required = false) String name,
+                                   @PathVariable(value = "sex",required = false) String sex){
+        SysUserPo po = new SysUserPo();
+        po.setUserName(name);
+//        po.setSex(sex);
+        List<SysUserPo> users = demoService.getUser(po);
+        return users;
+
     }
 
 

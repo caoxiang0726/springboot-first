@@ -17,6 +17,14 @@ my:           #这一层级肯定要能写多个
 spring:
   profiles:
     active: dev
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    #打印SQL
+    com.cx.mysql: debug
+
 #  kafka:
 #    # kafka服务器地址(可以多个)
 #    bootstrap-servers: 192.168.179.128:9092
