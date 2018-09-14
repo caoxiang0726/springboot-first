@@ -22,8 +22,18 @@ public class DemoSence {
 
 
     /**
-     * 分布式锁
+     * 分布式锁 countDownLatch
      */
+
+    /**
+     * 分布式 barrier
+     */
+
+    /**
+     * testingserver 能模拟出一个集群。。模拟选举挺不错
+     */
+
+
 
 
 }
