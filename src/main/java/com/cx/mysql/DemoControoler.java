@@ -33,9 +33,8 @@ public class DemoControoler {
         po.setUserName("cx");
         po.setBirthday(new Date());
         po.setSex("M");
-        int seq = demoService.addUser(po);
-        return seq+"";
-
+        int count = demoService.addUser(po);
+        return po.getId()+"";//获取自增值
     }
 
 

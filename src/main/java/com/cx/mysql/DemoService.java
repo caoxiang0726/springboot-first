@@ -13,7 +13,6 @@ public class DemoService {
     @Autowired private DemoDao demoDao;
 
     public int addUser(SysUserPo po){
-        int count = demoDao.addUser(po);
-        return po.getId();//获取自增值
+        return demoDao.addUser(po);
     }
 }
